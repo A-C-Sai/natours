@@ -39,16 +39,22 @@ e.g. .btn:hover::after ---> when btn is hovered add styles to after pseudo eleme
 *::after {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  /* root font-size is set in the html element */
+  font-size: 62.5%;
 }
 
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -61,17 +67,17 @@ body {
   position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo {
-  height: 35px;
+.header__logo {
+  height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -82,22 +88,22 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
-.heading-primary-main {
+.heading-primary--main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 6rem;
   animation-name: moveInLeft;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
 }
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   animation-name: moveInRight;
   animation-duration: 0.5s;
   /* slower towards the end */
@@ -108,10 +114,10 @@ body {
   /* BEFOR ANIMATION STARTS */
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
   /* END OF ANIMATION */
   100% {
@@ -123,10 +129,10 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
   100% {
     opacity: 1;
@@ -139,22 +145,23 @@ body {
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 14px 30px;
-  border-radius: 999px;
+  padding: 1.5rem 3rem;
+  border-radius: 100rem;
   transition: all 0.5s;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.296);
+  box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.296);
 }
 
 .btn:active {
-  transform: translateY(3px);
+  transform: translateY(0.3rem);
   box-shadow: none;
 }
 
-.btn-white {
+.btn--white {
   color: #777;
   background-color: #fff;
 }
@@ -163,7 +170,7 @@ body {
   /* BEFOR ANIMATION STARTS */
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(5rem);
   }
 
   /* END OF ANIMATION */
@@ -173,7 +180,7 @@ body {
   }
 }
 
-.btn-animated {
+.btn--animated {
   animation-name: moveInDown;
   animation-duration: 0.3s;
   /* slower towards the end */
