@@ -6,6 +6,7 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
 /* 
 
 - clip-path : ploygon(x y, x y, x y, x y) ---> specifying a polygon in which the image or element will still be visible. x = x-axis (points to right), y = y-axis (points downwards); reference point is top left corner; specificy coordinated in clock-wise direction. https://bennettfeely.com/clippy/
@@ -23,7 +24,7 @@ Dark green: #28b485
             - animation-delay
         - animation-iteration-count
         - animation-fill-mode ------> with value as backwards, it automatically adds the styles of the 0% b4 animation starts, useful when we are using it with animation-delay property
-
+    
     - backface-visibility ---> fixes shaky animation
 
 - inline-block elements are treated as if they were text, can center them using text-align property
@@ -32,6 +33,13 @@ Dark green: #28b485
 
 e.g. .btn:hover::after ---> when btn is hovered add styles to after pseudo element
 */
+
+$color-primary: #7ed56f;
+$color-primary-light: #55c57a;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
+
 *,
 *::before,
 *::after {
@@ -46,18 +54,19 @@ html {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 3rem;
   box-sizing: border-box;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgb($color-primary-dark, 0.8)),
+    url('../img/hero.jpg');
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -83,11 +92,10 @@ body {
 }
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   margin-bottom: 6rem;
 }
-
 .heading-primary--main {
   display: block;
   font-size: 6rem;
@@ -97,7 +105,6 @@ body {
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
 }
-
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
@@ -124,6 +131,7 @@ body {
     transform: translateX(0);
   }
 }
+
 @keyframes moveInRight {
   0% {
     opacity: 0;
@@ -137,6 +145,7 @@ body {
     transform: translateX(0);
   }
 }
+
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -159,8 +168,8 @@ body {
 }
 
 .btn--white {
-  color: #777;
-  background-color: #fff;
+  color: $color-grey-dark;
+  background-color: $color-white;
 }
 
 @keyframes moveInDown {
@@ -169,12 +178,14 @@ body {
     opacity: 0;
     transform: translateY(5rem);
   }
+
   /* END OF ANIMATION */
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .btn--animated {
   animation-name: moveInDown;
   animation-duration: 0.3s;
@@ -183,5 +194,3 @@ body {
   animation-delay: 0.5s;
   animation-fill-mode: backwards;
 }
-
-/*# sourceMappingURL=style.css.map */
